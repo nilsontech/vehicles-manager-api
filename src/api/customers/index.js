@@ -18,7 +18,7 @@ routes.post('/', function (req, res) {
     street: req.body.street
   });
 
-  res.json({ msg: 'Cliente criado' });
+  res.json({ msg: 'Cliente criado!' });
 });
 
 routes.put('/:id', function (req, res) {
