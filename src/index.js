@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(bodyParser.json());
-app.use('*');
+app.use(cors('*'));
 
 // DECLARANDO A ROTA
 // app.get('/', function (req, res) {
