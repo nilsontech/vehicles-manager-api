@@ -23,10 +23,12 @@ routes.post('/', function (req, res) {
     neighborhood: req.body.neighborhood,
     city: req.body.city,
     state: req.body.state,
-    obs: req.body.adjunct
+    obs: req.body.obs
+  }).then(function() {
+  res.json({ msg: 'Cliente criado!' });    
+  }).catch(function(error) {
+    console.log(error);
   });
-
-  res.json({ msg: 'Cliente criado!' });
 });
 
 routes.put('/:id', function (req, res) {
@@ -42,7 +44,7 @@ routes.put('/:id', function (req, res) {
     neighborhood: req.body.neighborhood,
     city: req.body.city,
     state: req.body.state,
-    obs: req.body.adjunct
+    obs: req.body.obs
   }).then(() => { res.json({ msg: 'Cliente atualizado!' }) });
 });
 
