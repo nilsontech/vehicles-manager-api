@@ -15,7 +15,15 @@ routes.get('/', function (req, res) {
 routes.post('/', function (req, res) {
   customersModel.create({
     name: req.body.name,
-    street: req.body.street
+    cpf: req.body.cpf,
+    cep: req.body.cep,
+    street: req.body.street,
+    number: req.body.number,
+    adjunct: req.body.adjunct,
+    neighborhood: req.body.neighborhood,
+    city: req.body.city,
+    state: req.body.state,
+    obs: req.body.adjunct
   });
 
   res.json({ msg: 'Cliente criado!' });
@@ -26,14 +34,22 @@ routes.put('/:id', function (req, res) {
 
   customersModel.findOneAndUpdate({ _id: id }, {
     name: req.body.name,
-    street: req.body.street
-  }).then(() => {res.json({ msg: 'Cliente atualizado!' })});
+    cpf: req.body.cpf,
+    cep: req.body.cep,
+    street: req.body.street,
+    number: req.body.number,
+    adjunct: req.body.adjunct,
+    neighborhood: req.body.neighborhood,
+    city: req.body.city,
+    state: req.body.state,
+    obs: req.body.adjunct
+  }).then(() => { res.json({ msg: 'Cliente atualizado!' }) });
 });
 
 routes.delete("/:id", function (req, res) {
   const id = req.params.id;
 
-  customersModel.findOneAndRemove( { _id: id }).then(() => res.json({ msg: 'Cliente Deletado!' }))
+  customersModel.findOneAndRemove({ _id: id }).then(() => res.json({ msg: 'Cliente Deletado!' }))
 });
 
 module.exports = routes;
